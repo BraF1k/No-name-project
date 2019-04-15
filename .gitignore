@@ -1,0 +1,5 @@
+# psd
+
+*.psd
+/node_modules
+package-lock.json
