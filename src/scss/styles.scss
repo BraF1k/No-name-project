@@ -1,3 +1,19 @@
-body {
-    background-color: #f00;
+.welcome {
+  display: flex;
+
+  &__container {
+    display: flex;
+  }
+
+  &__left,
+  &__right {
+    align-items: center;
+    display: flex;
+    width: 50%;
+  }
+
+  &__image {
+    height: auto;
+    width: 100%;
+  }
 }
