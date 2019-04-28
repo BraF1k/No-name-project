@@ -37,7 +37,7 @@ function styles () {
                 .pipe(cleanCSS({
                     level: 2
                 }))
-            .pipe(gulp.dest('./build/css'))
+            .pipe(gulp.dest('./dist/css'))
             .pipe(browserSync.stream());
 }
 
@@ -47,7 +47,7 @@ function scripts () {
         .pipe(uglify({
             toplevel: true
         }))
-        .pipe(gulp.dest('./build/js'))
+        .pipe(gulp.dest('./dist/js'))
         .pipe(browserSync.stream());
 }
 
@@ -56,7 +56,7 @@ gulp.task('imagemin', () =>
         .pipe(imagemin(
             imagemin.jpegtran({progressive: true}),
             imagemin.optipng({optimizationLevel: 5}),))
-        .pipe(gulp.dest('./build/img'))
+        .pipe(gulp.dest('./dist/img'))
 );
 
 function watch () {
@@ -72,14 +72,13 @@ function watch () {
 }
 
 function remove() {
-   return del(['build/*']);
+   return del(['dist/*']);
 }
 
 gulp.task('styles', styles)
 gulp.task('scripts', scripts)
 gulp.task('watch', watch)
 gulp.task('del', remove)
-
 
 
 gulp.task('build', gulp.series('del', 'imagemin',
